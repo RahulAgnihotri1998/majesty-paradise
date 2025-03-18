@@ -1,0 +1,13 @@
+[16-Mar-2025 16:54:37 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: Access denied for user 'root'@'localhost' (using password: NO) in /home/fymmcmpd/public_html/magesty-paradise/admin/codes/db.php:17
+Stack trace:
+#0 /home/fymmcmpd/public_html/magesty-paradise/admin/codes/db.php(17): mysqli->__construct('localhost', 'root', '', 'adventure_tours')
+#1 /home/fymmcmpd/public_html/magesty-paradise/nav.php(1): include('/home/fymmcmpd/...')
+#2 /home/fymmcmpd/public_html/magesty-paradise/index.php(4): include_once('/home/fymmcmpd/...')
+#3 {main}
+  thrown in /home/fymmcmpd/public_html/magesty-paradise/admin/codes/db.php on line 17
+[16-Mar-2025 16:56:18 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: Table 'fymmcmpd_magesty-paradise.Brand' doesn't exist in /home/fymmcmpd/public_html/magesty-paradise/nav.php:6
+Stack trace:
+#0 /home/fymmcmpd/public_html/magesty-paradise/nav.php(6): mysqli->query('SELECT * FROM B...')
+#1 /home/fymmcmpd/public_html/magesty-paradise/index.php(4): include_once('/home/fymmcmpd/...')
+#2 {main}
+  thrown in /home/fymmcmpd/public_html/magesty-paradise/nav.php on line 6
