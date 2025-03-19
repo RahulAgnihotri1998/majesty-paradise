@@ -7,11 +7,10 @@ if (!isset($db) || !($db instanceof mysqli)) {
 
    
    // Database configuration
-  // Database configuration
    define('DB_HOST', 'localhost'); // Replace with your database host
-   define('DB_USERNAME', 'fymmcmpd_magesty-paradise'); // Replace with your database username
-   define('DB_PASSWORD', 'bcktwn+@Z?HE'); // Replace with your database password
-   define('DB_NAME', 'fymmcmpd_magesty-paradise');
+   define('DB_USERNAME', 'root'); // Replace with your database username
+   define('DB_PASSWORD', ''); // Replace with your database password
+   define('DB_NAME', 'adventure_tours'); // Replace with your database name
 
 
     // Establish database connection

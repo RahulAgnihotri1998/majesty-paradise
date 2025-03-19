@@ -126,7 +126,7 @@
 
             .header-layout1 .sticky-wrapper .menu-area {
                 padding: 4px 0;
-            }
+            }     
 
             .header-layout1 .logo-bg {
                 width: 64%;
@@ -134,7 +134,7 @@
         }
     </style>
 
-    <div class="hero-3" id="hero">
+    <div class="hero-3" id="hero" >
         <div class="swiper hero-slider-3 swiper-fade swiper-initialized swiper-horizontal swiper-watch-progress swiper-backface-hidden"
             id="heroSlide3">
             <div class="swiper-wrapper" id="swiper-wrapper-106672a4a3b4c9814" aria-live="off"
@@ -246,7 +246,7 @@
                 </div>
             </div><span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span>
         </div>
-        <div class="hero3-wrapper">
+        <div class="hero3-wrapper" style="visibility: hidden;">
             <div class="container">
                 <div class="row justify-content-center align-items-end flex-row-reverse">
                     <div class="col-lg-4">
@@ -379,7 +379,95 @@
     </div>
 
     <!-- tour area -->
+    <style>
+.title-area {
+    padding: 20px;
+}
 
+/* Sub-title animations */
+.sub-title {
+    display: inline-block;
+    transition: all 0.4s ease-in-out;
+    color: #666;
+    position: relative;
+    padding: 0 10px;
+}
+
+.sub-title:hover {
+    transform: scale(1.2) rotate(3deg); /* Scale and slight rotation */
+    color: #d25016; /* Your specified orange color */
+    text-shadow: 0 4px 6px rgba(0,0,0,0.2);
+}
+
+/* Add a subtle bounce effect using keyframes */
+@keyframes bounce {
+    0% { transform: scale(1) rotate(0deg); }
+    50% { transform: scale(1.25) rotate(3deg); }
+    100% { transform: scale(1.2) rotate(3deg); }
+}
+
+.sub-title:hover {
+    animation: bounce 0.4s ease-in-out;
+}
+
+/* Add pseudo-element for underline effect */
+.sub-title::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -5px;
+    left: 0;
+    background-color: #d25016;
+    transition: width 0.3s ease;
+}
+
+.sub-title:hover::after {
+    width: 100%;
+}
+
+/* Section title animations */
+.sec-title {
+    transition: all 0.4s ease-in-out;
+    color: #333;
+    position: relative;
+}
+
+.sec-title:hover {
+    transform: scale(1.1) translateY(-5px); /* Scale and upward movement */
+    color: #d25016;
+    text-shadow: 0 4px 6px rgba(0,0,0,0.2);
+}
+
+/* Add a subtle pulse effect using keyframes */
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.12); }
+    100% { transform: scale(1.1); }
+}
+
+.sec-title:hover {
+    animation: pulse 0.5s ease-in-out;
+}
+
+/* Add pseudo-element for background highlight effect */
+.sec-title::before {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 50%;
+    top: 50%;
+    left: 50%;
+    background-color: rgba(210, 80, 22, 0.1); /* Light transparent version of #d25016 */
+    transition: all 0.4s ease;
+    z-index: -1;
+    transform: translate(-50%, -50%);
+}
+
+.sec-title:hover::before {
+    width: 80%;
+}
+</style>
     <div class="destination-area position-relative overflow-hidden">
         <div class="container">
             <div class="title-area text-center"><span class="sub-title">Top Destination</span>
@@ -620,6 +708,8 @@
         $categories[] = $row;
     }
     ?>
+
+
 
     <section class="category-area2 bg-top-center position-relative overflow-hidden space space-extra-bottom">
         <div class="container th-container">
