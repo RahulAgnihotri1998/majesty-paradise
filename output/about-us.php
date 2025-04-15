@@ -2,95 +2,95 @@
 
 <body>
     <?php include_once('nav.php'); ?>
-    <style>
-        .bg-title {
+<style>
+     .bg-title {
             background-color: #f5e0c3 !important;
         }
-    </style>
-    <div class="breadcumb-wrapper background-image" style="background-image: url('assets/img/bg/breadcumb-bg.jpg');">
-        <div class="container">
-            <div class="breadcumb-content">
-                <h1 class="breadcumb-title">About Majesty Paradise</h1>
-                <ul class="breadcumb-menu">
-                    <li><a href="/">Home</a></li>
-                    <li>About Majesty Paradise</li>
-                </ul>
-            </div>
-        </div>
-    </div>
-    <div class="about-area position-relative overflow-hidden overflow-hidden space" id="about-sec">
-        <div class="container shape-mockup-wrap">
-            <div class="row">
-                <div class="col-xl-7">
-                    <div class="img-box3">
-                        <div class="img1"><img alt="Kashmir Landscape" src="optimized_images\boat.webp" /></div>
-                        <div class="img2"><img alt="Gulmarg Adventure" src="optimized_images\about32.webp" /></div>
-                        <div class="img3 movingX"><img alt="Srinagar Houseboat" src="optimized_images\moutnt.webp" />
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-5">
-                    <div class="ps-xl-4">
-                        <div class="title-area mb-20">
-                            <span class="sub-title style1">Welcome to Majesty Paradise</span>
-                            <h2 class="sec-title mb-20 pe-xl-5 me-xl-5 heading">Your Trusted Srinagar Travel Agency</h2>
-                        </div>
-                        <p class="pe-xl-5">We’re Majesty Paradise Tour and Travel, a homegrown Srinagar squad that’s all
+</style>
+<div class="breadcumb-wrapper background-image" style="background-image: url('assets/img/bg/breadcumb-bg.jpg');">
+<div class="container">
+<div class="breadcumb-content">
+<h1 class="breadcumb-title">About Majesty Paradise</h1>
+<ul class="breadcumb-menu">
+<li><a href="/">Home</a></li>
+<li>About Majesty Paradise</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="about-area position-relative overflow-hidden overflow-hidden space" id="about-sec">
+<div class="container shape-mockup-wrap">
+<div class="row">
+<div class="col-xl-7">
+<div class="img-box3">
+<div class="img1"><img alt="Kashmir Landscape" src="optimized_images\boat.webp"/></div>
+<div class="img2"><img alt="Gulmarg Adventure" src="optimized_images\about32.webp"/></div>
+<div class="img3 movingX"><img alt="Srinagar Houseboat" src="optimized_images\moutnt.webp"/>
+</div>
+</div>
+</div>
+<div class="col-xl-5">
+<div class="ps-xl-4">
+<div class="title-area mb-20">
+<span class="sub-title style1">Welcome to Majesty Paradise</span>
+<h2 class="sec-title mb-20 pe-xl-5 me-xl-5 heading">Your Trusted Srinagar Travel Agency</h2>
+</div>
+<p class="pe-xl-5">We’re Majesty Paradise Tour and Travel, a homegrown Srinagar squad that’s all
                             about bringing Kashmir’s magic to life for you. No cookie-cutter trips here—just real, local
                             know-how shaping every journey.</p>
-                        <p class="mb-30 pe-xl-5">Based right in the heart of Srinagar, we’ve got the inside track on
+<p class="mb-30 pe-xl-5">Based right in the heart of Srinagar, we’ve got the inside track on
                             Kashmir tour packages that fit your vibe—whether it’s a cozy honeymoon package in Kashmir, a
                             wild adventure tour in Kashmir, or a chill Jammu Kashmir holiday package. From Dal Lake’s
                             shikara rides to Gurez Valley’s hidden trails, we craft trips that don’t break the bank and
                             let you call the shots. Our crew’s here to sort the details—hotels, rides, guides—so you can
                             soak in the views and skip the stress.</p>
-                        <div class="about-item-wrap">
-                            <div class="about-item style2">
-                                <div class="about-item_img"><img alt="" src="assets/img/icon/about_1_1.svg" /></div>
-                                <div class="about-item_centent">
-                                    <h5 class="box-title">Tailored Kashmir Trips</h5>
-                                    <p class="about-item_text">Pick your spots—Gulmarg, Pahalgam, wherever—and we’ll
+<div class="about-item-wrap">
+<div class="about-item style2">
+<div class="about-item_img"><img alt="" src="assets/img/icon/about_1_1.svg"/></div>
+<div class="about-item_centent">
+<h5 class="box-title">Tailored Kashmir Trips</h5>
+<p class="about-item_text">Pick your spots—Gulmarg, Pahalgam, wherever—and we’ll
                                         tweak your package to match. It’s your Kashmir, your way.</p>
-                                </div>
-                            </div>
-                            <div class="about-item style2">
-                                <div class="about-item_img"><img alt="" src="assets/img/icon/about_1_2.svg" /></div>
-                                <div class="about-item_centent">
-                                    <h5 class="box-title">Worry-Free Travel</h5>
-                                    <p class="about-item_text">We’ve got your back—safe rides, cozy stays, and locals
+</div>
+</div>
+<div class="about-item style2">
+<div class="about-item_img"><img alt="" src="assets/img/icon/about_1_2.svg"/></div>
+<div class="about-item_centent">
+<h5 class="box-title">Worry-Free Travel</h5>
+<p class="about-item_text">We’ve got your back—safe rides, cozy stays, and locals
                                         who know the ropes. You just enjoy the ride.</p>
-                                </div>
-                            </div>
-                            <div class="about-item style2">
-                                <div class="about-item_img"><img alt="" src="assets/img/icon/about_1_3.svg" /></div>
-                                <div class="about-item_centent">
-                                    <h5 class="box-title">Expert Local Guides</h5>
-                                    <p class="about-item_text">Our Srinagar team knows every nook—think secret
+</div>
+</div>
+<div class="about-item style2">
+<div class="about-item_img"><img alt="" src="assets/img/icon/about_1_3.svg"/></div>
+<div class="about-item_centent">
+<h5 class="box-title">Expert Local Guides</h5>
+<p class="about-item_text">Our Srinagar team knows every nook—think secret
                                         viewpoints and the best chai spots. You’re in good hands.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="mt-35"><a class="th-btn style3 th-icon" href="contact.html">Contact With Us</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="shape-mockup movingX d-none d-xxl-block" style="top: 0%; left: -18%;">
-                <img alt="shape" src="optimized_images\shape21.webp" />
-            </div>
-            <div class="shape-mockup jump d-none d-xxl-block" style="top: 28%; right: -15%;">
-                <img alt="shape" src="optimized_images\shape22.webp" />
-            </div>
-            <div class="shape-mockup spin d-none d-xxl-block" style="bottom: 18%; left: -112%;">
-                <img alt="shape" src="optimized_images\shape23.webp" />
-            </div>
-            <div class="shape-mockup movixgX d-none d-xxl-block" style="right: -12%; bottom: 18%;">
-                <img alt="shape" src="optimized_images\shape24.webp" />
-            </div>
-        </div>
-    </div>
-    <section class="team-area7 position-relative space-bottom overflow-hidden arrow-wrap">
-        <!-- <div class="container z-index-common shape-mockup-wrap">
+</div>
+</div>
+</div>
+<div class="mt-35"><a class="th-btn style3 th-icon" href="contact.html">Contact With Us</a>
+</div>
+</div>
+</div>
+</div>
+<div class="shape-mockup movingX d-none d-xxl-block" style="top: 0%; left: -18%;">
+<img alt="shape" src="optimized_images\shape21.webp"/>
+</div>
+<div class="shape-mockup jump d-none d-xxl-block" style="top: 28%; right: -15%;">
+<img alt="shape" src="optimized_images\shape22.webp"/>
+</div>
+<div class="shape-mockup spin d-none d-xxl-block" style="bottom: 18%; left: -112%;">
+<img alt="shape" src="optimized_images\shape23.webp"/>
+</div>
+<div class="shape-mockup movixgX d-none d-xxl-block" style="right: -12%; bottom: 18%;">
+<img alt="shape" src="optimized_images\shape24.webp"/>
+</div>
+</div>
+</div>
+<!-- <section class="team-area7 position-relative space overflow-hidden arrow-wrap">
+        <div class="container z-index-common shape-mockup-wrap">
             <div class="title-area text-center"><span class="sub-title">Meet with Our Team</span>
                 <h2 class="sec-title"></h2>
             </div>
@@ -221,21 +221,14 @@
                     src="assets/img/shape/shape_2_3.png" alt="shape"></div>
             <div class="shape-mockup movingX d-none d-xl-block" style="right: -14%; bottom: 12%;"><img
                     src="assets/img/shape/shape_2_4.png" alt="shape"></div>
-        </div> -->
+        </div>
 
 
-        <div class="">
+        <div class="space">
             <div class="container">
                 <div class="row gy-4 align-items-center flex-row-reverse">
                     <div class="col-lg-6">
-                        <div class="img-box11">
-                            <div class="img1"><img
-                                    src="img/free-photo-of-basket-weaver-crafting-in-a-srinagar-market-stall.webp"
-                                    alt="Kashmir Adventure"></div>
-                        </div>
-                    </div>
-                    <div class="col-lg-6">
-                        <div class="pe-xl-5">
+                        <div class="ps-xl-5">
                             <div class="title-area">
                                 <span class="sub-title style1">Why Choose Us</span>
                                 <h2 class="sec-title">Explore Kashmir, Your Way</h2>
@@ -274,10 +267,13 @@
                             </div>
                         </div>
                     </div>
-
+                    <div class="col-lg-6">
+                        <div class="img-box11">
+                            <div class="img1"><img src="img/free-photo-of-basket-weaver-crafting-in-a-srinagar-market-stall.webp" alt="Kashmir Adventure"></div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-    </section>
-    <?php include_once('footer.php'); ?>
-</body>
+    </section> -->
+    <?php include_once('footer.php'); ?></body>
