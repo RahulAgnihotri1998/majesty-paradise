@@ -126,15 +126,29 @@
 
             .header-layout1 .sticky-wrapper .menu-area {
                 padding: 4px 0;
-            }     
+            }
 
             .header-layout1 .logo-bg {
                 width: 64%;
             }
         }
+        .title-area .sub-title,
+.title-area .sec-title {
+  transition: all 0.3s ease;
+ 
+}
+
+.title-area .sub-title:hover,
+.title-area .sec-title:hover {
+  color: #FF5722; /* Choose your hover color */
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+  transform: scale(1.02); /* Slight zoom effect */
+}
+
+
     </style>
 
-    <div class="hero-3" id="hero" >
+    <div class="hero-3 " id="hero">
         <div class="swiper hero-slider-3 swiper-fade swiper-initialized swiper-horizontal swiper-watch-progress swiper-backface-hidden"
             id="heroSlide3">
             <div class="swiper-wrapper" id="swiper-wrapper-106672a4a3b4c9814" aria-live="off"
@@ -246,10 +260,10 @@
                 </div>
             </div><span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span>
         </div>
-        <div class="hero3-wrapper" style="visibility: hidden;">
+        <div class="hero3-wrapper">
             <div class="container">
                 <div class="row justify-content-center align-items-end flex-row-reverse">
-                    <div class="col-lg-4">
+                    <div class="col-lg-8">
                         <div class="hero3-swiper-custom"><button data-slider-prev="#heroSlide3"
                                 class="swiper-button-next" tabindex="0" aria-label="Next slide"
                                 aria-controls="swiper-wrapper-106672a4a3b4c9814"><img
@@ -264,62 +278,28 @@
                                 style="transform: translate3d(-1302px, 0px, 0px); transition-duration: 0ms; transition-delay: 0ms;">
                                 <div class="swiper-slide" style="width: 424px; margin-right: 10px;" role="group"
                                     aria-label="1 / 5">
-                                    <div class="hero-inner">
-                                        <div class="hero3-card">
-                                            <div class="hero-img"><img src="assets/img/destination/product-1.webp"
-                                                    alt="">
-                                            </div>
-                                        </div>
-                                    </div>
+                                 
                                 </div>
                                 <div class="swiper-slide" style="width: 424px; margin-right: 10px;" role="group"
                                     aria-label="2 / 5">
-                                    <div class="hero-inner">
-                                        <div class="hero3-card">
-                                            <div class="hero-img"><img src="assets/img/destination/prodcut-2.webp"
-                                                    alt="">
-                                            </div>
-                                        </div>
-                                    </div>
+                                    
                                 </div>
                                 <div class="swiper-slide swiper-slide-prev" style="width: 424px; margin-right: 10px;"
                                     role="group" aria-label="3 / 5">
-                                    <div class="hero-inner">
-                                        <div class="hero3-card">
-                                            <div class="hero-img"><img src="assets/img/destination/product-1.webp"
-                                                    alt="">
-                                            </div>
-                                        </div>
-                                    </div>
+                                   
                                 </div>
                                 <div class="swiper-slide swiper-slide-thumb-active swiper-slide-visible swiper-slide-active"
                                     style="width: 424px; margin-right: 10px;" role="group" aria-label="4 / 5">
-                                    <div class="hero-inner">
-                                        <div class="hero3-card">
-                                            <div class="hero-img"><img src="assets/img/destination/product-3.webp"
-                                                    alt="">
-                                            </div>
-                                        </div>
-                                    </div>
+                                   
                                 </div>
                                 <div class="swiper-slide swiper-slide-next" role="group" aria-label="5 / 5"
                                     style="width: 424px; margin-right: 10px;">
-                                    <div class="hero-inner">
-                                        <div class="hero3-card">
-                                            <div class="hero-img"><img src="assets/img/destination/product-4.webp"
-                                                    alt="">
-                                            </div>
-                                        </div>
-                                    </div>
+                                   
                                 </div>
                             </div><span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span>
                         </div>
                     </div>
-                    <div class="col-lg-8">
-                        <div class="hero-booking style2">
-
-                        </div>
-                    </div>
+                    
                 </div>
             </div>
         </div>
@@ -327,7 +307,6 @@
                         src="assets/img/icon/down-arrow.svg" alt=""></span>Scroll Down</a></div>
     </div>
 
-    <div class="th-hero-wrapper hero-1" id="hero"><div class="swiper th-slider hero-slider-1 swiper-fade swiper-initialized swiper-horizontal swiper-watch-progress swiper-backface-hidden" id="heroSlide1" data-slider-options="{&quot;effect&quot;:&quot;fade&quot;,&quot;menu&quot;: [&quot;&quot;, &quot;&quot;, &quot;&quot;],&quot;heroSlide1&quot;: {&quot;swiper-container&quot;: {&quot;pagination&quot;: {&quot;el&quot;: &quot;.swiper-pagination&quot;, &quot;clickable&quot;: true }}}}"><div class="swiper-wrapper" id="swiper-wrapper-dd4a7290ad27c960" aria-live="off" style="transition-duration: 0ms; transition-delay: 0ms;"><div class="swiper-slide swiper-slide-next" role="group" aria-label="3 / 3" data-swiper-slide-index="2" style="width: 536px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;"><div class="hero-inner"><div class="th-hero-bg background-image" style="background-image: url(&quot;assets/img/hero/hero_bg_1_3.jpg&quot;);"></div><div class="container"><div class="hero-style1"><span class="sub-title style1 slideinup" data-ani="slideinup" data-ani-delay="0.2s" style="animation-delay: 0.2s;">Get unforgetable pleasure with us</span><h1 class="hero-title slideinup" data-ani="slideinup" data-ani-delay="0.4s" style="animation-delay: 0.4s;">Explore beauty of the whole world</h1><div class="btn-group slideinup" data-ani="slideinup" data-ani-delay="0.6s" style="animation-delay: 0.6s;"><a href="tour.html" class="th-btn th-icon">Explore Tours</a> <a href="service.html" class="th-btn style2 th-icon">Our Services</a></div></div></div></div></div><div class="swiper-slide swiper-slide-prev" role="group" aria-label="1 / 3" data-swiper-slide-index="0" style="width: 536px; opacity: 1; transform: translate3d(-536px, 0px, 0px); transition-duration: 0ms;"><div class="hero-inner"><div class="th-hero-bg background-image" style="background-image: url(&quot;assets/img/hero/hero_bg_1_1.jpg&quot;);"></div><div class="container"><div class="hero-style1"><span class="sub-title style1 slideinup" data-ani="slideinup" data-ani-delay="0.2s" style="animation-delay: 0.2s;">Get unforgetable pleasure with us</span><h1 class="hero-title slideinup" data-ani="slideinup" data-ani-delay="0.4s" style="animation-delay: 0.4s;">Natural Wonder of the world</h1><div class="btn-group slideinup" data-ani="slideinup" data-ani-delay="0.6s" style="animation-delay: 0.6s;"><a href="tour.html" class="th-btn th-icon">Explore Tours</a> <a href="service.html" class="th-btn style2 th-icon">Our Services</a></div></div></div></div></div><div class="swiper-slide swiper-slide-visible swiper-slide-active" role="group" aria-label="2 / 3" data-swiper-slide-index="1" style="width: 536px; opacity: 1; transform: translate3d(-1072px, 0px, 0px); transition-duration: 0ms;"><div class="hero-inner"><div class="th-hero-bg background-image" style="background-image: url(&quot;assets/img/hero/hero_bg_1_2.jpg&quot;);"></div><div class="container"><div class="hero-style1"><span class="sub-title style1 slideinup" data-ani="slideinup" data-ani-delay="0.2s" style="animation-delay: 0.2s;">Get unforgetable pleasure with us</span><h1 class="hero-title slideinup" data-ani="slideinup" data-ani-delay="0.4s" style="animation-delay: 0.4s;">Let’s make your best trip with us</h1><div class="btn-group slideinup" data-ani="slideinup" data-ani-delay="0.6s" style="animation-delay: 0.6s;"><a href="tour.html" class="th-btn th-icon">Explore Tours</a> <a href="service.html" class="th-btn style2 th-icon">Our Services</a></div></div></div></div></div></div><div class="th-swiper-custom"><button data-slider-prev="#heroSlide1" class="slider-arrow slider-prev" tabindex="0" aria-label="Previous slide" aria-controls="swiper-wrapper-dd4a7290ad27c960"><img src="assets/img/icon/right-arrow.svg" alt=""></button><div class="slider-pagination swiper-pagination-clickable swiper-pagination-bullets swiper-pagination-horizontal"><span class="swiper-pagination-bullet" aria-label="Go to Slide 01" tabindex="0"></span><span class="swiper-pagination-bullet swiper-pagination-bullet-active" aria-label="Go to Slide 02" tabindex="0" aria-current="true"></span><span class="swiper-pagination-bullet" aria-label="Go to Slide 03" tabindex="0"></span></div><button data-slider-next="#heroSlide1" class="slider-arrow slider-next" tabindex="0" aria-label="Next slide" aria-controls="swiper-wrapper-dd4a7290ad27c960"><img src="assets/img/icon/left-arrow.svg" alt=""></button></div><span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span></div></div>
     <div class="about-area position-relative overflow-hidden space-top" id="about-sec">
         <div class="container">
             <div class="row">
@@ -380,95 +359,7 @@
     </div>
 
     <!-- tour area -->
-    <style>
-.title-area {
-    padding: 20px;
-}
 
-/* Sub-title animations */
-.sub-title {
-    display: inline-block;
-    transition: all 0.4s ease-in-out;
-    color: #666;
-    position: relative;
-    padding: 0 10px;
-}
-
-.sub-title:hover {
-    transform: scale(1.2) rotate(3deg); /* Scale and slight rotation */
-    color: #d25016; /* Your specified orange color */
-    text-shadow: 0 4px 6px rgba(0,0,0,0.2);
-}
-
-/* Add a subtle bounce effect using keyframes */
-@keyframes bounce {
-    0% { transform: scale(1) rotate(0deg); }
-    50% { transform: scale(1.25) rotate(3deg); }
-    100% { transform: scale(1.2) rotate(3deg); }
-}
-
-.sub-title:hover {
-    animation: bounce 0.4s ease-in-out;
-}
-
-/* Add pseudo-element for underline effect */
-.sub-title::after {
-    content: '';
-    position: absolute;
-    width: 0;
-    height: 2px;
-    bottom: -5px;
-    left: 0;
-    background-color: #d25016;
-    transition: width 0.3s ease;
-}
-
-.sub-title:hover::after {
-    width: 100%;
-}
-
-/* Section title animations */
-.sec-title {
-    transition: all 0.4s ease-in-out;
-    color: #333;
-    position: relative;
-}
-
-.sec-title:hover {
-    transform: scale(1.1) translateY(-5px); /* Scale and upward movement */
-    color: #d25016;
-    text-shadow: 0 4px 6px rgba(0,0,0,0.2);
-}
-
-/* Add a subtle pulse effect using keyframes */
-@keyframes pulse {
-    0% { transform: scale(1); }
-    50% { transform: scale(1.12); }
-    100% { transform: scale(1.1); }
-}
-
-.sec-title:hover {
-    animation: pulse 0.5s ease-in-out;
-}
-
-/* Add pseudo-element for background highlight effect */
-.sec-title::before {
-    content: '';
-    position: absolute;
-    width: 0;
-    height: 50%;
-    top: 50%;
-    left: 50%;
-    background-color: rgba(210, 80, 22, 0.1); /* Light transparent version of #d25016 */
-    transition: all 0.4s ease;
-    z-index: -1;
-    transform: translate(-50%, -50%);
-}
-
-.sec-title:hover::before {
-    width: 80%;
-}
-</style>
     <div class="destination-area position-relative overflow-hidden">
         <div class="container">
             <div class="title-area text-center"><span class="sub-title">Top Destination</span>
@@ -710,15 +601,13 @@
     }
     ?>
 
-
-
     <section class="category-area2 bg-top-center position-relative overflow-hidden space space-extra-bottom">
         <div class="container th-container">
             <div class="row justify-content-center">
                 <div class="col-lg-8">
                     <div class="title-area text-center">
                         <span class="sub-title">Tour Activity</span>
-                        <h2 class="sec-title">Our Tour Package Ensures A Seamless And Memorable Adventure</h2>
+                        <h2 class="sec-title bend-text">Our Tour Package Ensures A Seamless And Memorable Adventure</h2>
                     </div>
                 </div>
             </div>
@@ -762,7 +651,7 @@
                                                     <div class="box-wrapp">
                                                         <div class="box-content">
                                                             <h3 class="box-title">
-                                                                <a href="<?= Base_url . htmlspecialchars($product['url']) ?>">
+                                                                <a href="package-details.php?url=<?= htmlspecialchars($product['url']) ?>">
                                                                     <?= htmlspecialchars($product['title']) ?>
                                                                 </a>
                                                             </h3>

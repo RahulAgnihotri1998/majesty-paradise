@@ -91,7 +91,7 @@
         </div>
     </div>
 
-    <section class="team-area7 position-relative space overflow-hidden arrow-wrap">
+    <!-- <section class="team-area7 position-relative space overflow-hidden arrow-wrap">
         <div class="container z-index-common shape-mockup-wrap">
             <div class="title-area text-center"><span class="sub-title">Meet with Our Team</span>
                 <h2 class="sec-title"></h2>
@@ -277,5 +277,5 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> -->
     <?php include_once('footer.php'); ?>
