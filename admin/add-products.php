@@ -11,7 +11,7 @@ include('inc/header.php') ?>
   <!-- partial -->
   <div class="container-fluid page-body-wrapper">
     <!-- partial:partials/_settings-panel.html -->
-   <?php include('sidebar.php') ?>
+    <?php include('sidebar.php') ?>
     <!-- partial -->
     <div class="main-panel">
       <div class="content-wrapper">
@@ -38,7 +38,7 @@ include('inc/header.php') ?>
                 </div>
                 <div class="form-group">
                   <label for="duration">Duration (Days/Nights)</label>
-                  <input type="number" class="form-control" id="duration" placeholder="Enter Duration">
+                  <input type="text" class="form-control" id="duration" placeholder="Enter Duration">
                   <div id="durationError" class="error-message"></div> <!-- Error div -->
                 </div>
                 <!-- Number of Persons -->
@@ -69,120 +69,153 @@ include('inc/header.php') ?>
                   <div id="includedServicesError" class="error-message"></div>
                 </div>
 
-                <!-- Meal Plan -->
-                <div class="form-group">
-                  <label>Meal Plan</label>
-                  <div>
-                    <input type="checkbox" id="mealPlanBreakfast" value="Breakfast">
-                    <label for="mealPlanBreakfast">Breakfast</label>
-                  </div>
-                  <div>
-                    <input type="checkbox" id="mealPlanLunch" value="Lunch">
-                    <label for="mealPlanLunch">Lunch</label>
-                  </div>
-                  <div>
-                    <input type="checkbox" id="mealPlanDinner" value="Dinner">
-                    <label for="mealPlanDinner">Dinner</label>
-                  </div>
-                  <div>
-                    <input type="checkbox" id="mealPlanAllMeals" value="All Meals">
-                    <label for="mealPlanAllMeals">All Meals</label>
-                  </div>
-                  <div id="mealPlanError" class="error-message"></div>
-                </div>
+             <!-- Meal Plan with Select All -->
+      <div class="form-group">
+        <label>Meal Plan</label>
+        <button type="button" class="btn btn-sm btn-outline-primary mb-2" onclick="toggleCheckboxes('mealPlan')">Select All</button>
+        <div>
+          <input type="checkbox" class="mealPlan" id="mealPlanBreakfast" value="Breakfast">
+          <label for="mealPlanBreakfast">Breakfast</label>
+        </div>
+        <div>
+          <input type="checkbox" class="mealPlan" id="mealPlanLunch" value="Lunch">
+          <label for="mealPlanLunch">Lunch</label>
+        </div>
+        <div>
+          <input type="checkbox" class="mealPlan" id="mealPlanDinner" value="Dinner">
+          <label for="mealPlanDinner">Dinner</label>
+        </div>
+        <div>
+          <input type="checkbox" class="mealPlan" id="mealPlanAllMeals" value="All Meals">
+          <label for="mealPlanAllMeals">All Meals</label>
+        </div>
+        <div id="mealPlanError" class="error-message"></div>
+      </div>
 
-                <!-- Transport -->
-                <div class="form-group">
-                  <label>Transport</label>
-                  <div>
-                    <input type="checkbox" id="transportSEDEN" value="(SEDEN) NON A/C">
-                    <label for="transportSEDEN">(SEDEN) NON A/C</label>
-                  </div>
-                  <div>
-                    <input type="checkbox" id="transportTaxes" value="Government Taxes/VAT/ Service Charges">
-                    <label for="transportTaxes">Government Taxes/VAT/ Service Charges</label>
-                  </div>
-                  <div>
-                    <input type="checkbox" id="transportCab" value="Cab for sightseeing">
-                    <label for="transportCab">Cab for sightseeing</label>
-                  </div>
-                  <div>
-                    <input type="checkbox" id="transportSightseeing" value="Sightseeing">
-                    <label for="transportSightseeing">Sightseeing</label>
-                  </div>
-                  <div id="transportError" class="error-message"></div>
-                </div>
+      <!-- Transport with Select All -->
+      <div class="form-group">
+        <label>Transport</label>
+        <button type="button" class="btn btn-sm btn-outline-primary mb-2" onclick="toggleCheckboxes('transport')">Select All</button>
+        <div>
+          <input type="checkbox" class="transport" id="transportSEDEN" value="(SEDEN) NON A/C">
+          <label for="transportSEDEN">(SEDEN) NON A/C</label>
+        </div>
+        <div>
+          <input type="checkbox" class="transport" id="transportTaxes" value="Government Taxes/VAT/ Service Charges">
+          <label for="transportTaxes">Government Taxes/VAT/ Service Charges</label>
+        </div>
+        <div>
+          <input type="checkbox" class="transport" id="transportCab" value="Cab for sightseeing">
+          <label for="transportCab">Cab for sightseeing</label>
+        </div>
+        <div>
+          <input type="checkbox" class="transport" id="transportSightseeing" value="Sightseeing">
+          <label for="transportSightseeing">Sightseeing</label>
+        </div>
+        <div id="transportError" class="error-message"></div>
+      </div>
 
-                <!-- Hotel -->
-                <div class="form-group">
-                  <label>Hotel</label>
-                  <div>
-                    <input type="checkbox" id="hotelRoom" value="One room">
-                    <label for="hotelRoom">One room</label>
-                  </div>
-                  <div>
-                    <input type="checkbox" id="hotelStar" value="3 Star hotel">
-                    <label for="hotelStar">3 Star hotel</label>
-                  </div>
-                  <div id="hotelError" class="error-message"></div>
-                </div>
+      <!-- Hotel with Select All -->
+      <div class="form-group">
+        <label>Hotel</label>
+        <button type="button" class="btn btn-sm btn-outline-primary mb-2" onclick="toggleCheckboxes('hotel')">Select All</button>
+        <div>
+          <input type="checkbox" class="hotel" id="hotelRoom" value="One room">
+          <label for="hotelRoom">One room</label>
+        </div>
+        <div>
+          <input type="checkbox" class="hotel" id="hotelStar" value="3 Star hotel">
+          <label for="hotelStar">3 Star hotel</label>
+        </div>
+        <div id="hotelError" class="error-message"></div>
+      </div>
 
-                <!-- Airport/Railway Station Pickup/Drop -->
-                <div class="form-group">
-                  <label>Airport/Railway Station Pickup/Drop</label>
-                  <div>
-                    <input type="checkbox" id="pickupArrival" value="Arrival">
-                    <label for="pickupArrival">Arrival</label>
-                  </div>
-                  <div>
-                    <input type="checkbox" id="pickupDeparture" value="Departure">
-                    <label for="pickupDeparture">Departure</label>
-                  </div>
-                  <div id="pickupDropError" class="error-message"></div>
-                </div>
+      <!-- Airport/Railway Station Pickup/Drop with Select All -->
+      <div class="form-group">
+        <label>Airport/Railway Station Pickup/Drop</label>
+        <button type="button" class="btn btn-sm btn-outline-primary mb-2" onclick="toggleCheckboxes('pickup')">Select All</button>
+        <div>
+          <input type="checkbox" class="pickup" id="pickupArrival" value="Arrival">
+          <label for="pickupArrival">Arrival</label>
+        </div>
+        <div>
+          <input type="checkbox" class="pickup" id="pickupDeparture" value="Departure">
+          <label for="pickupDeparture">Departure</label>
+        </div>
+        <div id="pickupDropError" class="error-message"></div>
+      </div>
 
-                <!-- Flights -->
-                <div class="form-group">
-                  <label>Flights</label>
-                  <div>
-                    <input type="checkbox" id="flights" value="Flight">
-                    <label for="flights">Flight</label>
-                  </div>
-                  <div id="flightsError" class="error-message"></div>
-                </div>
+      <!-- Flights (single checkbox, no Select All needed) -->
+      <div class="form-group">
+        <label>Flights</label>
+        <div>
+          <input type="checkbox" id="flights" value="Flight">
+          <label for="flights">Flight</label>
+        </div>
+        <div id="flightsError" class="error-message"></div>
+      </div>
 
-                <!-- Entry Fee Charges -->
-                <div class="form-group">
-                  <label>Entry Fee Charges</label>
-                  <div>
-                    <input type="checkbox" id="entryFees" value="Other entry fees">
-                    <label for="entryFees">Other entry fees</label>
-                  </div>
-                  <div id="entryFeesError" class="error-message"></div>
-                </div>
+      <!-- Entry Fee Charges (single checkbox, no Select All needed) -->
+      <div class="form-group">
+        <label>Entry Fee Charges</label>
+        <div>
+          <input type="checkbox" id="entryFees" value="Other entry fees">
+          <label for="entryFees">Other entry fees</label>
+        </div>
+        <div id="entryFeesError" class="error-message"></div>
+      </div>
 
-                <!-- Others -->
-                <div class="form-group">
-                  <label>Others</label>
-                  <div>
-                    <input type="checkbox" id="othersAssistance" value="Assistance on arrival">
-                    <label for="othersAssistance">Assistance on arrival</label>
-                  </div>
-                  <div>
-                    <input type="checkbox" id="othersDrink" value="Welcome drink on arrival at hotel">
-                    <label for="othersDrink">Welcome drink on arrival at hotel</label>
-                  </div>
-                  <div>
-                    <input type="checkbox" id="othersNonAC" value="Other non A/C cars">
-                    <label for="othersNonAC">Other non A/C cars</label>
-                  </div>
-                  <div>
-                    <input type="checkbox" id="othersInclusions" value="Other inclusions">
-                    <label for="othersInclusions">Other inclusions</label>
-                  </div>
-                  <div id="othersError" class="error-message"></div>
-                </div>
+      <!-- Others with Select All -->
+      <div class="form-group">
+        <label>Others</label>
+        <button type="button" class="btn btn-sm btn-outline-primary mb-2" onclick="toggleCheckboxes('others')">Select All</button>
+        <div>
+          <input type="checkbox" class="others" id="othersAssistance" value="Assistance on arrival">
+          <label for="othersAssistance">Assistance on arrival</label>
+        </div>
+        <div>
+          <input type="checkbox" class="others" id="othersDrink" value="Welcome drink on arrival at hotel">
+          <label for="othersDrink">Welcome drink on arrival at hotel</label>
+        </div>
+        <div>
+          <input type="checkbox" class="others" id="othersNonAC" value="Other non A/C cars">
+          <label for="othersNonAC">Other non A/C cars</label>
+        </div>
+        <div>
+          <input type="checkbox" class="others" id="othersInclusions" value="Other inclusions">
+          <label for="othersInclusions">Other inclusions</label>
+        </div>
+        <div id="othersError" class="error-message"></div>
+      </div>
 
+      <!-- Remaining form fields -->
+      <div class="form-group">
+        <label for="exampleInputMetaTitle">Meta Title</label>
+        <input type="text" class="form-control" id="exampleInputMetaTitle" placeholder="Meta Title">
+        <div id="metaTitleError" class="error-message"></div>
+      </div>
+      <!-- ... Other fields ... -->
+   
+<!-- JavaScript for Select All functionality -->
+<script>
+function toggleCheckboxes(groupClass) {
+  const checkboxes = document.getElementsByClassName(groupClass);
+  let allChecked = true;
+  
+  // Check if all checkboxes are currently checked
+  for (let checkbox of checkboxes) {
+    if (!checkbox.checked) {
+      allChecked = false;
+      break;
+    }
+  }
+  
+  // Toggle: if all are checked, uncheck all; if any are unchecked, check all
+  for (let checkbox of checkboxes) {
+    checkbox.checked = !allChecked;
+  }
+}
+</script>
                 <!-- Other form fields for Add Package Form -->
                 <div class="form-group">
                   <label for="exampleInputMetaTitle">Meta Title</label>
@@ -253,8 +286,7 @@ include('inc/header.php') ?>
                 <!-- Error div for Select Brand -->
 
                 <style>
-                <h4 class="card-title">Add Package Form</h4>
-                  .Package-prefix-container {}
+                  <h4 class="card-title">Add Package Form</h4>.Package-prefix-container {}
 
                   /* Style for the selected values input */
                   .selected-values {
@@ -296,50 +328,49 @@ include('inc/header.php') ?>
                     color: red;
                   }
                 </style>
-                <?php
-                // Include database connection
-                include('./codes/db.php');
+              <?php
+include('./codes/db.php');
 
-                // Fetch Package data from the database
-                echo $sql = "SELECT id, name FROM brand";
+// Fetch brand data from the database
+$sql = "SELECT id, name FROM brand"; // Adjust table name if necessary
+$result = $db->query($sql);
 
-                $result = $db->query($sql);
+// Initialize an empty array to store brand data
+$brands = array();
 
-                // Initialize an empty array to store Package data
-                $Packages = array();
+// Check if there are any results
+if ($result->num_rows > 0) {
+    // Loop through each row and store brand data in the $brands array
+    while ($row = $result->fetch_assoc()) {
+        $brands[] = $row;
+    }
+}
+?>
 
-                // Check if there are any results
-                if ($result->num_rows > 0) {
-                  // Loop through each row and store Package data in the $Packages array
-                  while ($row = $result->fetch_assoc()) {
-                    $Packages[] = $row;
-                  }
-                }
-                ?>
+<!-- Select Brand -->
+<div class="form-group">
+    <label for="brandSelect">Select Brand</label>
+    <select class="form-control form-control-lg" id="brandSelect" name="brand_id">
+        <option value="">Select Brand</option>
+        <?php
+        // Loop through brands and create options
+        foreach ($brands as $brand) {
+            echo "<option value='{$brand['id']}'>{$brand['name']}</option>";
+        }
+        ?>
+    </select>
+    <div id="brandError" class="error-message"></div> <!-- Error div -->
+</div>
 
-                <!-- Select Package -->
-                <div class="form-group">
-                  <label for="PackageSelect">Select Package</label>
-                  <select class=" ui fluid search dropdown" multiple>
-                    <?php
-                    // Assuming $Packages is an array containing Package data fetched from the database
-                    foreach ($Packages as $Package) {
-                      echo "<option value='{$Package['id']}'>{$Package['name']}</option>";
-                    }
-                    ?>
-                  </select>
-                  <input type="text" class="selected-values form-control" placeholder="Selected Packages">
-                  <div id="PackageError" class="error-message"></div> <!-- Error div -->
-                </div>
 
                 <!-- Status -->
                 <!-- Error div for Status -->
                 <div class="form-group">
                   <label for="exampleFormControlSelect2">Status</label>
-                  <select class="form-control form-control-lg" id="exampleFormControlSelect2">
-                    <option>Unpublished</option>
-                    <option>Published</option>
-                  </select>
+                  <select class="form-control form-control-lg" id="exampleFormControlSelect2" name="status">
+  <option value="Inactive">Unpublished</option>
+  <option value="active">Published</option>
+</select>
                   <div id="statusError" class="error-message"></div> <!-- Error div -->
                 </div>
               </div>
@@ -540,100 +571,113 @@ include('inc/header.php') ?>
         // Function to submit the form
         // Function to submit the form
         function submitForms() {
-  if (!validateForm()) {
-    return; // Stop if validation fails
-  }
+          if (!validateForm()) {
+            return; // Stop if validation fails
+          }
 
-  const formData = new FormData();
+          const formData = new FormData();
 
-  // Append all required fields
-  formData.append('title', document.getElementById('exampleInputTitle').value);
-  formData.append('url', document.getElementById('exampleInputURL').value);
-  formData.append('duration', document.getElementById('duration').value);
-  formData.append('numberOfPersons', document.getElementById('numberOfPersons').value);
-  formData.append('totalCost', document.getElementById('totalCost').value);
-  formData.append('highlights', document.getElementById('highlights').value);
-  formData.append('metaTitle', document.getElementById('exampleInputMetaTitle').value);
-  formData.append('metaDescription', document.getElementById('exampleInputMetaDescription').value);
-  formData.append('additionalCode', document.getElementById('exampleInputAdditionalCode').value);
-  formData.append('status', document.getElementById('exampleFormControlSelect2').value);
+          // Append all required fields
+          formData.append('title', document.getElementById('exampleInputTitle').value);
+          formData.append('url', document.getElementById('exampleInputURL').value);
+          formData.append('duration', document.getElementById('duration').value);
+          formData.append('numberOfPersons', document.getElementById('numberOfPersons').value);
+          formData.append('totalCost', document.getElementById('totalCost').value);
+          formData.append('highlights', document.getElementById('highlights').value);
+          formData.append('metaTitle', document.getElementById('exampleInputMetaTitle').value);
+          formData.append('metaDescription', document.getElementById('exampleInputMetaDescription').value);
+          formData.append('additionalCode', document.getElementById('exampleInputAdditionalCode').value);
+          formData.append('status', document.getElementById('exampleFormControlSelect2').value);
 
-  // Append file uploads
-  formData.append('mainImage', document.getElementById('mainImageUpload').files[0]);
+          // Append file uploads
+          formData.append('mainImage', document.getElementById('mainImageUpload').files[0]);
 
-  const galleryFiles = document.getElementById('galleryImagesUpload').files;
-  for (let i = 0; i < galleryFiles.length; i++) {
-    formData.append('galleryImages[]', galleryFiles[i]);
-  }
+          const galleryFiles = document.getElementById('galleryImagesUpload').files;
+          for (let i = 0; i < galleryFiles.length; i++) {
+            formData.append('galleryImages[]', galleryFiles[i]);
+          }
 
-  // Append CKEditor data
-  formData.append('longDescription', CKEDITOR.instances['editor1'].getData());
-  formData.append('applications', CKEDITOR.instances['editor2'].getData());
+          // Append CKEditor data
+          formData.append('longDescription', CKEDITOR.instances['editor1'].getData());
+          formData.append('applications', CKEDITOR.instances['editor2'].getData());
 
-  // Append selected packages
-  const selectedPackages = Array.from(document.querySelectorAll('.ui.label.transition.visible'))
-    .map(label => label.getAttribute('data-value'))
-    .join(',');
-  formData.append('selectedPackages', selectedPackages);
+        formData.append('brand_id', document.getElementById('brandSelect').value);
+          // Create services JSON
+          let services = {
+            'mealPlan': [],
+            'transport': [],
+            'hotel': [],
+            'pickupDrop': [],
+            'flights': [],
+            'entryFees': [],
+            'others': []
+          };
 
-  // Create services JSON
-  let services = {
-    'mealPlan': [],
-    'transport': [],
-    'hotel': [],
-    'pickupDrop': [],
-    'flights': [],
-    'entryFees': [],
-    'others': []
-  };
+          // Populate services object
+          ['mealPlan', 'transport', 'hotel', 'pickupDrop', 'flights', 'entryFees', 'others'].forEach(serviceType => {
+            document.querySelectorAll(`input[type="checkbox"][id^="${serviceType}"]:checked`).forEach(cb => {
+              services[serviceType].push(cb.value);
+            });
+          });
 
-  // Populate services object
-  ['mealPlan', 'transport', 'hotel', 'pickupDrop', 'flights', 'entryFees', 'others'].forEach(serviceType => {
-    document.querySelectorAll(`input[type="checkbox"][id^="${serviceType}"]:checked`).forEach(cb => {
-      services[serviceType].push(cb.value);
-    });
-  });
+          // Append services JSON to FormData
+          formData.append('services', JSON.stringify(services));
 
-  // Append services JSON to FormData
-  formData.append('services', JSON.stringify(services));
-
-  // Perform AJAX request
-  const xhr = new XMLHttpRequest();
-  xhr.open('POST', './codes/add-Package.php');
-  xhr.onload = function () {
+          // Perform AJAX request
+          // Perform AJAX request
+const xhr = new XMLHttpRequest();
+xhr.open('POST', './codes/add-Package.php');
+xhr.onload = function () {
     if (xhr.status === 200) {
-      const response = JSON.parse(xhr.responseText);
-      if (response.success) {
-        Swal.fire({
-          text: 'Form submitted successfully!',
-          icon: 'success',
-          confirmButtonText: 'Ok, got it!'
-        }).then(() => {
-          // Redirect or reset form
-        });
-      } else {
-        Swal.fire({
-          text: 'Form submission failed: ' + response.message,
-          icon: 'error',
-          confirmButtonText: 'Ok, got it!'
-        });
-      }
+        let response;
+        try {
+            response = JSON.parse(xhr.responseText);
+        } catch (e) {
+            Swal.fire({
+                text: 'Invalid server response',
+                icon: 'error',
+                confirmButtonText: 'Ok, got it!'
+            });
+            return;
+        }
+
+        if (response.success) {
+            Swal.fire({
+                text: 'Form submitted successfully!',
+                icon: 'success',
+                confirmButtonText: 'Ok, got it!'
+            }).then(() => {
+                // Redirect or reset form
+                // Example: document.getElementById('addPackageForm').reset();
+            });
+        } else {
+            // Handle errors array
+            let errorMessage = 'Form submission failed.';
+            if (response.errors && Array.isArray(response.errors) && response.errors.length > 0) {
+                errorMessage = response.errors.join('<br>'); // Join errors with line breaks
+            }
+            Swal.fire({
+                html: errorMessage, // Use html to render line breaks
+                icon: 'error',
+                confirmButtonText: 'Ok, got it!'
+            });
+        }
     } else {
-      Swal.fire({
-        text: 'Error: ' + xhr.statusText,
+        Swal.fire({
+            text: 'Server error: ' + xhr.statusText,
+            icon: 'error',
+            confirmButtonText: 'Ok, got it!'
+        });
+    }
+};
+xhr.onerror = function () {
+    Swal.fire({
+        text: 'Request failed. Please check your network connection.',
         icon: 'error',
         confirmButtonText: 'Ok, got it!'
-      });
-    }
-  };
-  xhr.onerror = function () {
-    Swal.fire({
-      text: 'Request failed',
-      icon: 'error',
-      confirmButtonText: 'Ok, got it!'
     });
-  };
-  xhr.send(formData);
+};
+xhr.send(formData); // Assuming formData is defined earlier
 }
         // Function to handle file input change event
         document.getElementById('mainImageUpload').addEventListener('change', function () {

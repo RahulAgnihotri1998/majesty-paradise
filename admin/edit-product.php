@@ -487,14 +487,14 @@ display: none !important;
 
                                         <!-- Status -->
                                         <!-- Error div for Status -->
-                                        <div class="form-group">
-                                            <label for="exampleFormControlSelect2">Status</label>
-                                            <select class="form-control form-control-lg" id="exampleFormControlSelect2">
-                                                <option>Unpublished</option>
-                                                <option>Published</option>
-                                            </select>
-                                            <div id="statusError" class="error-message"></div> <!-- Error div -->
-                                        </div>
+                                       <div class="form-group">
+                                <label for="exampleFormControlSelect2">Status</label>
+                                <select class="form-control form-control-lg" id="exampleFormControlSelect2" name="status">
+                                    <option value="Inactive" <?php echo ($status === 'inactive' ? 'selected' : ''); ?>>Inactive</option>
+                                    <option value="active" <?php echo ($status === 'active' ? 'selected' : ''); ?>>Active</option>
+                                </select>
+                                <div id="statusError" class="error-message"></div> <!-- Error div -->
+                            </div>
                                     </div>
                                 </div>
                             </div>

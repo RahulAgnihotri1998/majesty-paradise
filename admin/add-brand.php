@@ -89,9 +89,9 @@ include('inc/header.php') ?>
                                         <label for="exampleInputStatus">Status</label>
                                         <select class="form-control" id="exampleInputStatus" required>
                                             <option value="">Select Status</option>
-                                            <option value="Published">Published</option>
-                                            <option value="Draft">Draft</option>
-                                            <option value="Archived">Archived</option>
+                                            <option value="active">Published</option>
+                                           
+                                            <option value="Inactive">inactive</option>
                                         </select>
                                         <div id="statusError" class="error-message"></div>
                                     </div>

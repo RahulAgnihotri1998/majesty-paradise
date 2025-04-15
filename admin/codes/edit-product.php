@@ -18,8 +18,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         'exampleFormControlSelect2' => 'status',
         'brandId' => 'brandId'
     ];
-    $requiredFields = array('title', 'url', 'metaTitle', 'metaDescription', 'additionalCode', 'status', 
-        'longDescription', 'applications', 'duration', 'numberOfPersons', 'totalCost', 'highlights');
+    $requiredFields = array(
+        'title', 'url', 'metaTitle', 'metaDescription', 'additionalCode', 'status', 
+        'longDescription', 'applications', 'duration', 'numberOfPersons', 'totalCost', 'highlights'
+    );
     foreach ($requiredFields as $field) {
         $frontendField = array_search($field, $fieldMapping) ?: $field;
         if (empty($_POST[$frontendField])) {
@@ -27,16 +29,23 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
     }
 
+    // Check if the URL is unique (excluding the current product)
+    $productId = $db->real_escape_string($_POST['product_id']);
+    $url = $db->real_escape_string($_POST['exampleInputURL']);
+    $checkUrlSql = "SELECT id FROM products WHERE url = '$url' AND id != '$productId'";
+    $urlResult = $db->query($checkUrlSql);
+    if ($urlResult && $urlResult->num_rows > 0) {
+        $errors[] = 'The URL already exists. Please choose a different URL.';
+    }
+
     error_log("Validation Errors: " . json_encode($errors));
 
     if (empty($errors)) {
-        $productId = $db->real_escape_string($_POST['product_id']);
         $title = $db->real_escape_string($_POST['exampleInputTitle']);
-        $url = $db->real_escape_string($_POST['exampleInputURL']);
         $metaTitle = $db->real_escape_string($_POST['exampleInputMetaTitle']);
         $metaDescription = $db->real_escape_string($_POST['exampleInputMetaDescription']);
         $additionalCode = $db->real_escape_string($_POST['exampleInputAdditionalCode']);
-        $status = ($_POST['exampleFormControlSelect2'] == 'Published') ? 'active' : 'inactive';
+        $status = ($_POST['exampleFormControlSelect2'] == 'active') ? 'active' : 'inactive';
         $longDescription = $db->real_escape_string($_POST['longDescription']);
         $applications = $db->real_escape_string($_POST['applications']);
         $duration = $db->real_escape_string($_POST['duration']);
@@ -46,6 +55,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $brandId = intval($_POST['brandId']);
         $servicesJson = $db->real_escape_string($_POST['services']);
 
+        // Handle main image
         $mainImage = '';
         if (!empty($_FILES['mainImage']['name'])) {
             error_log("Main Image Upload Attempt: " . $_FILES['mainImage']['name']);
@@ -71,9 +81,62 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             }
         }
 
-        error_log("Main Image Before Query: " . $mainImage);
+        // Handle gallery images
+        $galleryImagesToKeep = isset($_POST['existingGalleryImages']) ? $_POST['existingGalleryImages'] : [];
+        if (!is_array($galleryImagesToKeep)) {
+            $galleryImagesToKeep = explode(',', $galleryImagesToKeep); // Handle comma-separated string if sent
+        }
+        error_log("Gallery Images to Keep: " . json_encode($galleryImagesToKeep));
+
+        // Fetch current gallery images from the database
+        $existingImagesQuery = "SELECT id, image_url FROM gallery_images WHERE product_id = '$productId'";
+        $existingImagesResult = $db->query($existingImagesQuery);
+        $currentImages = [];
+        while ($row = $existingImagesResult->fetch_assoc()) {
+            $currentImages[$row['id']] = $row['image_url'];
+        }
+        error_log("Current Gallery Images in DB: " . json_encode($currentImages));
+
+        // Remove images that are not in $galleryImagesToKeep
+        foreach ($currentImages as $imageId => $imageUrl) {
+            if (!in_array($imageId, $galleryImagesToKeep)) {
+                // Delete from database
+                $deleteSql = "DELETE FROM gallery_images WHERE id = '$imageId'";
+                $db->query($deleteSql);
+                error_log("Deleted Gallery Image ID: $imageId, URL: $imageUrl");
+                // Optionally delete file from server
+                if (file_exists($imageUrl)) {
+                    unlink($imageUrl);
+                    error_log("Deleted file: $imageUrl");
+                }
+            }
+        }
+
+        // Handle new gallery image uploads
+        $newGalleryImages = [];
+        if (isset($_FILES['galleryImages']) && !empty($_FILES['galleryImages']['name'][0])) {
+            foreach ($_FILES['galleryImages']['name'] as $key => $file_name) {
+                if ($_FILES['galleryImages']['error'][$key] === UPLOAD_ERR_OK) {
+                    $file_tmp = $_FILES['galleryImages']['tmp_name'][$key];
+                    $target_file = $destinationDirectory . time() . '_' . basename($file_name);
+                    if (move_uploaded_file($file_tmp, $target_file)) {
+                        $newGalleryImages[] = $target_file;
+                        error_log("Uploaded new gallery image: $target_file");
+                    } else {
+                        $errors[] = 'Failed to move uploaded gallery image: ' . $file_name;
+                        error_log("Failed to move gallery image: $file_name");
+                    }
+                } else {
+                    $errors[] = 'Error uploading gallery image: ' . $file_name;
+                    error_log("Upload error for gallery image: " . $_FILES['galleryImages']['error'][$key]);
+                }
+            }
+        }
+
+        error_log("New Gallery Images: " . json_encode($newGalleryImages));
 
         if (empty($errors)) {
+            // Update products table
             $sql = "UPDATE products SET
                 title = '$title',
                 url = '$url',
@@ -94,7 +157,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             error_log("SQL Query: " . $sql);
 
             if ($db->query($sql) === TRUE) {
-                error_log("Update successful");
+                error_log("Product update successful");
+
+                // Insert new gallery images
+                foreach ($newGalleryImages as $image) {
+                    $image = $db->real_escape_string($image);
+                    $insertImageSql = "INSERT INTO gallery_images (product_id, image_url) VALUES ('$productId', '$image')";
+                    $db->query($insertImageSql);
+                    error_log("Inserted new gallery image: $image");
+                }
+
                 $response = array('success' => true, 'message' => 'Product data updated successfully.');
             } else {
                 $errors[] = 'Error updating product: ' . $db->error;

@@ -1,4 +1,6 @@
 <?php
+ob_start(); // Start output buffering to prevent headers already sent issues
+
 // Include the database configuration file
 include('db.php');
 $destinationDirectory = 'product-image/'; // Replace with the actual path
@@ -19,15 +21,22 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
     }
 
+    // Check if the URL already exists
+    $url = $db->real_escape_string($_POST['url']);
+    $checkUrlSql = "SELECT id FROM products WHERE url = '$url'";
+    $urlResult = $db->query($checkUrlSql);
+    if ($urlResult && $urlResult->num_rows > 0) {
+        $errors[] = 'The URL already exists. Please choose a different URL.';
+    }
+
     // Check if any validation errors occurred
     if (empty($errors)) {
         // Get the form data
         $title = $db->real_escape_string($_POST['title']);
-        $url = $db->real_escape_string($_POST['url']);
         $metaTitle = $db->real_escape_string($_POST['metaTitle']);
         $metaDescription = $db->real_escape_string($_POST['metaDescription']);
         $additionalCode = $db->real_escape_string($_POST['additionalCode']);
-        $status = ($_POST['status'] == 'Published') ? 'active' : 'inactive'; // Mapping status
+        $status = ($_POST['status'] == 'active') ? 'active' : 'inactive'; // Mapping status
         $longDescription = $db->real_escape_string($_POST['longDescription']);
         $applications = $db->real_escape_string($_POST['applications']);
         $duration = $db->real_escape_string($_POST['duration']);
@@ -35,17 +44,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $totalCost = floatval($_POST['totalCost']);
         $highlights = $db->real_escape_string($_POST['highlights']);
         
-        // Handle selectedPackages for brand_id
-        $brandId = intval($_POST['selectedPackages']); // Assuming selectedPackages is a single value for brand_id
+        // Handle brand_id for brand_id
+        $brandId = intval($_POST['brand_id']); // Assuming brand_id is a single value for brand_id
 
         // Handle services input as JSON
-        var_dump($_POST['services']);
         $servicesJson = $db->real_escape_string($_POST['services']); // Services are already JSON
 
         // Handle file uploads
         $mainImage = uploadFile('mainImage');
-        $galleryImages = array();
+        if ($mainImage === false) {
+            $errors[] = 'Failed to upload main image.';
+        }
 
+        $galleryImages = array();
         if (isset($_FILES['galleryImages'])) {
             foreach ($_FILES['galleryImages']['name'] as $key => $file_name) {
                 $file_tmp = $_FILES['galleryImages']['tmp_name'][$key];
@@ -67,7 +78,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         // Check if any validation errors occurred during file upload
         if (empty($errors)) {
             // Prepare SQL statement for inserting product details
-           echo  $sql = "INSERT INTO products (
+            $sql = "INSERT INTO products (
                 title, url, meta_title, meta_description, additional_code, main_image, 
                 status, long_description, applications, duration, number_of_persons, 
                 total_cost, highlights, services, brand_id
@@ -116,6 +127,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     http_response_code(405); // Method Not Allowed
     echo json_encode(array('error' => 'Invalid request method.'));
 }
+
+ob_end_flush(); // Flush the output buffer
 
 function uploadFile($inputName) {
     global $destinationDirectory;
