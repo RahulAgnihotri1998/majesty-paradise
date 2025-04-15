@@ -544,102 +544,74 @@
         width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
         referrerpolicy="no-referrer-when-downgrade"></iframe> </div>
         <script>
-    const pages = ['page1', 'page2', 'page3'].map(id => document.getElementById(id));
-    const progressSteps = document.querySelectorAll('.step');
-    let currentPage = 0;
-    let enquiryId = null;
-
-    function showPage(pageIndex) {
-        pages.forEach((page, index) => {
-            page.classList.toggle('active', index === pageIndex);
-        });
-
-        progressSteps.forEach((step, index) => {
-            const bullet = step.querySelector('.bullet');
-            bullet.classList.toggle('active', index <= pageIndex);
-        });
-    }
-
-    function validatePage(page) {
-        const fields = page.querySelectorAll('[required]');
-        const alert = page.querySelector('.alert');
+   document.addEventListener("DOMContentLoaded", function () {
+    document.getElementById("pujaBookingForm").addEventListener("submit", function (event) {
+        event.preventDefault();
         let isValid = true;
-
-        fields.forEach(field => {
-            if (!field.value.trim()) {
-                isValid = false;
-            }
-        });
-
-        if (!isValid) {
-            alert.textContent = 'Please fill in all required fields.';
-            alert.className = 'alert error';
-            alert.style.display = 'block';
-            return false;
+        
+        // Clear previous error messages
+        document.querySelectorAll(".error-message").forEach(el => el.remove());
+        
+        // Validate Name
+        let nameField = document.getElementById("name");
+        if (nameField.value.trim() === "") {
+            showError(nameField, "Please enter your name.");
+            isValid = false;
         }
-
-        alert.style.display = 'none';
-        return true;
-    }
-
-    function submitStep(step) {
-        if (!validatePage(pages[currentPage])) return;
-
-        // Manually collect form data since we’re not using a <form> element
-        const inputs = document.querySelectorAll('#enquiryForm input, #enquiryForm select, #enquiryForm textarea');
-        const formData = {};
-        inputs.forEach(input => {
-            if (input.name) formData[input.name] = input.value;
-        });
-        formData.step = step;
-        if (enquiryId) formData.enquiry_id = enquiryId;
-
-        fetch('./admin/submit-form.php', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(formData)
-        })
-        .then(response => response.json())
-        .then(data => {
-            const alert = pages[currentPage].querySelector('.alert');
-            alert.textContent = data.message;
-            alert.className = `alert ${data.status}`;
-            alert.style.display = 'block';
-
-            if (data.status === 'success') {
-                if (step === '1') {
-                    enquiryId = data.enquiry_id;
-                    currentPage++;
-                    showPage(currentPage);
-                } else if (step === '2') {
-                    currentPage++;
-                    showPage(currentPage);
-                } else if (step === '3') {
-                    document.querySelectorAll('#enquiryForm input, #enquiryForm select, #enquiryForm textarea, #enquiryForm button')
-                        .forEach(element => element.disabled = true);
-                }
-            }
-        })
-        .catch(error => {
-            const alert = pages[currentPage].querySelector('.alert');
-            alert.textContent = 'An error occurred. Please try again.';
-            alert.className = 'alert error';
-            alert.style.display = 'block';
-            console.error('Error:', error);
-        });
-    }
-
-    // Event Listeners using IDs
-    document.getElementById('next1').addEventListener('click', () => submitStep('1'));
-    document.getElementById('prev1').addEventListener('click', () => {
-        currentPage--;
-        showPage(currentPage);
+        
+        // Validate Email
+        let emailField = document.getElementById("email");
+        if (emailField.value.trim() === "" || !validateEmail(emailField.value)) {
+            showError(emailField, "Please enter a valid email address.");
+            isValid = false;
+        }
+        
+        // Validate Phone
+        let phoneField = document.getElementById("phone");
+        if (phoneField.value.trim() === "" || !validatePhone(phoneField.value)) {
+            showError(phoneField, "Please enter a valid 10-digit phone number.");
+            isValid = false;
+        }
+        
+        // Validate Puja Type
+        let pujaTypeField = document.getElementById("pujaType");
+        if (pujaTypeField.value.trim() === "") {
+            showError(pujaTypeField, "Please select a puja type.");
+            isValid = false;
+        }
+        
+        // Validate Date
+        let dateField = document.getElementById("date");
+        if (dateField.value.trim() === "") {
+            showError(dateField, "Please select a date.");
+            isValid = false;
+        }
+        
+        if (isValid) {
+            this.submit();
+        }
     });
-    document.getElementById('next2').addEventListener('click', () => submitStep('2'));
-    document.getElementById('prev2').addEventListener('click', () => {
-        currentPage--;
-        showPage(currentPage);
-    });
-    document.getElementById('submitForm').addEventListener('click', () => submitStep('3'));
+    
+    function showError(inputElement, message) {
+        let errorDiv = document.createElement("div");
+        errorDiv.className = "error-message";
+        errorDiv.style.color = "red";
+        errorDiv.style.fontSize = "0.9em";
+        errorDiv.innerText = message;
+        
+        inputElement.parentNode.appendChild(errorDiv);
+    }
+    
+    function validateEmail(email) {
+        let re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return re.test(email);
+    }
+    
+    function validatePhone(phone) {
+        let re = /^\d{10}$/;
+        return re.test(phone);
+    }
+});
+
 </script>
 <?php include('footer.php') ?>
